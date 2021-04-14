@@ -15,6 +15,17 @@
 		A5495F0F262632F400019727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5495F0D262632F400019727 /* LaunchScreen.storyboard */; };
 		A5495F182626353D00019727 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F172626353D00019727 /* SettingsVC.swift */; };
 		A5495F1B2626693D00019727 /* AppThemeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F1A2626693D00019727 /* AppThemeCVCell.swift */; };
+		A5495F1E262728E100019727 /* ContactUsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F1D262728E100019727 /* ContactUsCVCell.swift */; };
+		A5495F212627313900019727 /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F202627313900019727 /* ContactVC.swift */; };
+		A5495F252627315600019727 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F232627315500019727 /* Styling.swift */; };
+		A5495F262627315600019727 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F242627315500019727 /* AlertService.swift */; };
+		A5495F292627316600019727 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F282627316600019727 /* K.swift */; };
+		A5495F2C2627318900019727 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F2B2627318900019727 /* Validation.swift */; };
+		A5495F33262733F200019727 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F31262733F200019727 /* TermsVC.swift */; };
+		A5495F34262733F200019727 /* PrivacyPolicyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F32262733F200019727 /* PrivacyPolicyVC.swift */; };
+		A5495F382627343100019727 /* LegalCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F372627343100019727 /* LegalCVCell.swift */; };
+		A5495F3B26275AB500019727 /* GeneralCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F3A26275AB500019727 /* GeneralCVCell.swift */; };
+		A5495F3E262766CC00019727 /* NotificationsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5495F3D262766CC00019727 /* NotificationsCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		A5495F10262632F400019727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5495F172626353D00019727 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		A5495F1A2626693D00019727 /* AppThemeCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeCVCell.swift; sourceTree = "<group>"; };
+		A5495F1D262728E100019727 /* ContactUsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsCVCell.swift; sourceTree = "<group>"; };
+		A5495F202627313900019727 /* ContactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
+		A5495F232627315500019727 /* Styling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
+		A5495F242627315500019727 /* AlertService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		A5495F282627316600019727 /* K.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		A5495F2B2627318900019727 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		A5495F31262733F200019727 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		A5495F32262733F200019727 /* PrivacyPolicyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyVC.swift; sourceTree = "<group>"; };
+		A5495F372627343100019727 /* LegalCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalCVCell.swift; sourceTree = "<group>"; };
+		A5495F3A26275AB500019727 /* GeneralCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralCVCell.swift; sourceTree = "<group>"; };
+		A5495F3D262766CC00019727 /* NotificationsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +68,9 @@
 			children = (
 				A5495F01262632F200019727 /* SettingsTemplate */,
 				A5495F00262632F200019727 /* Products */,
+				A5495F1D262728E100019727 /* ContactUsCVCell.swift */,
+				A5495F32262733F200019727 /* PrivacyPolicyVC.swift */,
+				A5495F31262733F200019727 /* TermsVC.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,7 +88,15 @@
 				A5495F02262632F200019727 /* AppDelegate.swift */,
 				A5495F04262632F200019727 /* SceneDelegate.swift */,
 				A5495F06262632F200019727 /* ViewController.swift */,
+				A5495F202627313900019727 /* ContactVC.swift */,
+				A5495F2B2627318900019727 /* Validation.swift */,
 				A5495F08262632F200019727 /* Main.storyboard */,
+				A5495F3D262766CC00019727 /* NotificationsCVCell.swift */,
+				A5495F3A26275AB500019727 /* GeneralCVCell.swift */,
+				A5495F372627343100019727 /* LegalCVCell.swift */,
+				A5495F282627316600019727 /* K.swift */,
+				A5495F242627315500019727 /* AlertService.swift */,
+				A5495F232627315500019727 /* Styling.swift */,
 				A5495F1A2626693D00019727 /* AppThemeCVCell.swift */,
 				A5495F172626353D00019727 /* SettingsVC.swift */,
 				A5495F0B262632F400019727 /* Assets.xcassets */,
@@ -144,9 +177,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5495F07262632F200019727 /* ViewController.swift in Sources */,
+				A5495F292627316600019727 /* K.swift in Sources */,
+				A5495F3B26275AB500019727 /* GeneralCVCell.swift in Sources */,
+				A5495F2C2627318900019727 /* Validation.swift in Sources */,
+				A5495F1E262728E100019727 /* ContactUsCVCell.swift in Sources */,
+				A5495F252627315600019727 /* Styling.swift in Sources */,
 				A5495F1B2626693D00019727 /* AppThemeCVCell.swift in Sources */,
+				A5495F3E262766CC00019727 /* NotificationsCVCell.swift in Sources */,
+				A5495F382627343100019727 /* LegalCVCell.swift in Sources */,
+				A5495F34262733F200019727 /* PrivacyPolicyVC.swift in Sources */,
+				A5495F33262733F200019727 /* TermsVC.swift in Sources */,
 				A5495F182626353D00019727 /* SettingsVC.swift in Sources */,
 				A5495F03262632F200019727 /* AppDelegate.swift in Sources */,
+				A5495F212627313900019727 /* ContactVC.swift in Sources */,
+				A5495F262627315600019727 /* AlertService.swift in Sources */,
 				A5495F05262632F200019727 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

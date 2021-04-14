@@ -23,4 +23,15 @@ class AppThemeCVCell: UICollectionViewCell {
             window.overrideUserInterfaceStyle = .dark
         }
     }
+    
+    func styleButtons() {
+        let margin: CGFloat = 28
+        let screenSize = UIScreen.main.bounds
+        let cellWidth = screenSize.width - margin
+        lightButton.layer.cornerRadius = 8
+        darkButton.layer.cornerRadius = 8
+        buttonStackView.spacing = (cellWidth -
+                                    lightButton.frame.width -
+                                    darkButton.frame.width) / 3
+    }
 }
