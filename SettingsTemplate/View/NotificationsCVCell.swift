@@ -28,6 +28,15 @@ class NotificationsCVCell: UICollectionViewCell {
     
     @IBAction func pushTapped(_ sender: UISwitch) {
         pushDelegate?.togglePushNotifications()
+        //TODO: UPDATE SERVER
+    }
+    
+    @IBAction func soundTapped(_ sender: UISwitch) {
+        //TODO: UPDATE SERVER
+    }
+    
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
+        AlertService.showPopup(title: "Time Intervals", message: "This is the time between each notification you receive.", viewController: parentVC!)
     }
     
     func setup(viewController: UIViewController, pushNotificationsOn: Bool) {
@@ -54,11 +63,11 @@ class NotificationsCVCell: UICollectionViewCell {
         toolbar.sizeToFit()
         let screenSize = UIScreen.main.bounds
         toolbar.center = CGPoint(x: screenSize.width/2, y: 200)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.dismissKeyboard))
         let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonTapped as () -> Void))
         
-        toolbar.setItems([cancelButton, flexible, doneButton], animated: false)
+        toolbar.setItems([/*cancelButton,*/ flexible, doneButton], animated: false)
         
         toolbar.isUserInteractionEnabled = true
         timeIntervalTF.inputAccessoryView = toolbar
@@ -71,7 +80,15 @@ class NotificationsCVCell: UICollectionViewCell {
     
     @objc func doneButtonTapped() {
         guard let vc = parentVC else { return }
-        //TODO: When a user taps the done button
+        //TODO: UPDATE SERVER
         vc.view.endEditing(true)
+    }
+}
+
+// MARK: - Delegate
+
+extension NotificationsCVCell: ChangedTimeIntervalDelegate {
+    func changeInterval(to interval: NotificationTimeInterval) {
+        timeIntervalTF.text = interval.rawValue
     }
 }

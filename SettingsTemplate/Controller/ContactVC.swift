@@ -95,6 +95,10 @@ class ContactVC: UIViewController {
         view.endEditing(true)
     }
     
+    func darkMode() -> Bool {
+        return traitCollection.userInterfaceStyle == .dark
+    }
+    
 }
 
 // MARK: - TextView Delegate
@@ -104,7 +108,7 @@ extension ContactVC: UITextViewDelegate {
         if let text = messageTV.text {
             if text == placeholderText {
                 messageTV.text = ""
-                messageTV.textColor = .black
+                messageTV.textColor = darkMode() ? .white : .black
             }
         }
     }

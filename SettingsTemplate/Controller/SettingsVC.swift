@@ -7,54 +7,31 @@
 
 import UIKit
 
-// MARK: - ENUMs & Protocols
-
-enum PickerOption {
-    case currency
-    case timeInterval
-}
-
-enum ReuseIdentifier: String {
-    case Notifications = "NotificationsCell"
-    case NotificationsOFF = "NotificationsOFFCell"
-    case General = "GeneralSettingsCell"
-    case Appearance = "AppThemeCell"
-    case ContactUs = "ContactUsCell"
-    case Legal = "LegalCell"
-}
-
-enum ViewButton {
-    case ContactUs
-    case TermsOfService
-    case PrivacyPolicy
-}
-
-protocol ViewButtonDelegate {
-    func viewButtonTapped(_ type: ViewButton)
-}
-
-protocol SetPickerDelegate {
-    func setPicker(to option: PickerOption)
-}
-
-protocol PushNotificationsDelegate {
-    func togglePushNotifications()
-}
-
 class SettingsVC: UIViewController {
     
     // MARK: - Variables
     
     var collectionViewSection: [(identifier: String, numberOfRows: Int)] =
-        [(identifier: ReuseIdentifier.Notifications.rawValue, numberOfRows: 4),
+        [(identifier: ReuseIdentifier.Notifications.rawValue, numberOfRows: 3),
          (identifier: ReuseIdentifier.General.rawValue,       numberOfRows: 1),
          (identifier: ReuseIdentifier.Appearance.rawValue,    numberOfRows: 2),
          (identifier: ReuseIdentifier.ContactUs.rawValue,     numberOfRows: 1),
          (identifier: ReuseIdentifier.Legal.rawValue,         numberOfRows: 2)]
     
     var picker = PickerOption.timeInterval
-    let currencies = ["USD"]
-    let timeIntervals = ["5 Minutes", "15 Minutes", "30 Minutes", "1 Hour", "12 Hours", "24 Hours"]
+    let currencies: [Currency] = [.USDollar,
+                                  .Euro,
+                                  .CanadianDollar,
+                                  .AustralianDollar,
+                                  .JapaneseYen]
+    let timeIntervals: [NotificationTimeInterval] = [NotificationTimeInterval.fiveMinutes,
+                                                     NotificationTimeInterval.fifteenMinutes,
+                                                     NotificationTimeInterval.thirtyMinutes,
+                                                     NotificationTimeInterval.oneHour,
+                                                     NotificationTimeInterval.twelveHours,
+                                                     NotificationTimeInterval.oneDay]
+    var ctiDelegate: ChangedTimeIntervalDelegate?
+    var ccDelegate: ChangeCurrencyDelegate?
     
     // MARK: - IBOutlets
     
@@ -98,11 +75,13 @@ extension SettingsVC: UICollectionViewDelegate,
         case ReuseIdentifier.Notifications.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! NotificationsCVCell
             cell.setup(viewController: self, pushNotificationsOn: true)
+            ctiDelegate = cell
             return styleCell(cell) as! NotificationsCVCell
             
         case ReuseIdentifier.General.rawValue:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GeneralCVCell
             cell.setup(self)
+            ccDelegate = cell
             return styleCell(cell) as! GeneralCVCell
         
         case ReuseIdentifier.Legal.rawValue:
@@ -183,14 +162,19 @@ extension SettingsVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch picker {
         case .currency:
-            return currencies[row]
+            return currencies[row].rawValue
         case .timeInterval:
-            return timeIntervals[row]
+            return timeIntervals[row].rawValue
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //TODO: when the user selects a row
+        switch picker {
+        case .currency:
+            ccDelegate?.changeCurrency(to: currencies[row])
+        case .timeInterval:
+            ctiDelegate?.changeInterval(to: timeIntervals[row])
+        }
     }
 }
 
@@ -216,7 +200,7 @@ extension SettingsVC: PushNotificationsDelegate {
             if collectionViewSection[sectionIndex].identifier
                 == ReuseIdentifier.NotificationsOFF.rawValue {
                 collectionViewSection[sectionIndex].identifier = ReuseIdentifier.Notifications.rawValue
-                collectionViewSection[sectionIndex].numberOfRows = 4
+                collectionViewSection[sectionIndex].numberOfRows = 3
                 break
             }
         }

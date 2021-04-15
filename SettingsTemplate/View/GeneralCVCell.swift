@@ -38,11 +38,11 @@ class GeneralCVCell: UICollectionViewCell {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         toolbar.center = CGPoint(x: screenSize.width/2, y: 200)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+//        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.dismissKeyboard))
         let flexible = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneButtonTapped as () -> Void))
         
-        toolbar.setItems([cancelButton, flexible, doneButton], animated: false)
+        toolbar.setItems([/*cancelButton,*/ flexible, doneButton], animated: false)
         
         toolbar.isUserInteractionEnabled = true
         currencyTF.inputAccessoryView = toolbar
@@ -57,5 +57,13 @@ class GeneralCVCell: UICollectionViewCell {
         guard let vc = parentVC else { return }
         //TODO: When a user taps the done button
         vc.view.endEditing(true)
+    }
+}
+
+// MARK: - Delegate
+
+extension GeneralCVCell: ChangeCurrencyDelegate {
+    func changeCurrency(to currency: Currency) {
+        currencyTF.text = currency.rawValue
     }
 }
